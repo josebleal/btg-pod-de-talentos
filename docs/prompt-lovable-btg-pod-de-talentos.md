@@ -1,6 +1,6 @@
-# Prompt para o Lovable: BTG Pod de Talentos
+# Prompt para o Lovable: Remembr × BTG Pactual
 
-Recrie com fidelidade total um protótipo navegável chamado **"BTG Pod de Talentos"**: um site de demonstração de um produto para recrutadoras em feiras de carreira. O candidato encosta o celular num pod NFC no estande da BTG Pactual, entra com o LinkedIn, escolhe o ano da faculdade e anexa o currículo. A recrutadora recebe o candidato no WhatsApp, avalia com um toque (Forte, Médio ou Fraco) e pode deixar uma observação. Depois do evento, ela revisa os melhores candidatos num painel.
+Recrie com fidelidade total um protótipo navegável do **Remembr**, uma plataforma para recrutadoras em feiras de carreira, aqui mostrada na página de um cliente parceiro (BTG Pactual), tematizada com as cores dele. O candidato encosta o celular num pod NFC no estande da BTG Pactual, entra com o LinkedIn, escolhe o ano da faculdade e anexa o currículo. A recrutadora recebe o candidato no WhatsApp, avalia com um toque (Forte, Médio ou Fraco) e pode deixar uma observação. Depois do evento, ela revisa os melhores candidatos num painel.
 
 Tudo é **front-end com dados de exemplo e simulações animadas**. Não há backend, login, banco de dados nem integração real com WhatsApp ou LinkedIn. Todo o texto da interface fica em **português do Brasil**, exatamente como escrito abaixo.
 
@@ -23,6 +23,7 @@ Tudo é **front-end com dados de exemplo e simulações animadas**. Não há bac
 
 | Arquivo | Onde usar |
 |---|---|
+| `assets/brand/remembr-mark.svg`, `remembr-logo.svg`, `remembr-logo-white.svg` | Marca Remembr (preto, branco e cinza). Símbolo na barra do topo |
 | `btg-logo.png` | Logo quadrada da BTG (azul #001864 com "btg" branco). Barra do topo, cabeçalho da página do candidato no celular, notificação do iPhone, avatar do contato no WhatsApp |
 | `pod-frente.jpg` | Foto do pod azul visto de frente. Imagem do hero da Visão geral e pod da simulação do candidato |
 | `estande-pod.jpg` | Foto do candidato encostando o celular no pod no estande. Card 1 do "Como funciona" |
@@ -55,7 +56,7 @@ Fundo `#0a0f1c`, superfície `#121a2c`, texto `#e8ecf4`, secundário `#9aa4ba`, 
 
 ## 4. Estrutura geral
 
-* **Barra do topo** azul #001864: logo BTG (34px, raio 8px) + texto **"Pod de Talentos"** (Familjen Grotesk 600 16px, branco). Nada mais.
+* **Barra do topo** azul #001864 (cor do cliente): símbolo Remembr (`assets/brand/remembr-mark.svg`, 34px, raio 9px, contorno branco 22%) + **"remembr"** (Familjen Grotesk 700 20px, branco, minúsculas) + "×" + logo BTG (28px) + **"BTG Pactual"** (Plex Sans 600 14px) e, alinhada à direita, a etiqueta **"PARCERIA"** (Plex Mono 11px, borda branca 30%, pílula). No mobile esconda o texto "BTG Pactual".
 * **Abas fixas (sticky)** logo abaixo, fundo branco, borda inferior: **"Visão geral"**, **"Visão do candidato"**, **"Visão da recrutadora"**. Aba ativa com texto escuro e sublinhado azul de 2px. A aba da recrutadora mostra um badge vermelho com "1" quando o candidato termina a simulação (some ao abrir a aba).
 * Conteúdo centralizado, largura máxima 1120px.
 
@@ -146,7 +147,7 @@ Layout em 2 colunas (.8fr / 1.2fr).
 ### 7.1 Coluna esquerda
 * Eyebrow **"VISÃO DA RECRUTADORA"**, H2 **"Avaliar sem largar a próxima conversa"**
 * **iPhone com WhatsApp** (330x660px, mesma moldura):
-  * Cabeçalho verde #008069: avatar redondo com a logo BTG, **"BTG · Pod de Talentos"** e "conta comercial"
+  * Cabeçalho verde #008069: avatar redondo com a logo BTG, **"Remembr · BTG Pactual"** e "conta comercial"
   * Área da conversa com rolagem (sempre rola para a última mensagem)
   * Rodapé: campo arredondado "Mensagem" + botão redondo verde de enviar. Acima dele, uma barra de resposta (borda esquerda verde #06cf9c) que aparece ao responder uma mensagem: "Observação sobre [nome]" + botão "×" para cancelar.
 * Card **"Como responder"** com dois itens (rótulo em Plex Mono num chip azul claro):
@@ -157,7 +158,7 @@ Layout em 2 colunas (.8fr / 1.2fr).
 
 ### 7.2 Componentes do WhatsApp
 * **Balão recebido**: branco, canto superior esquerdo reto, horário pequeno à direita embaixo.
-* **Balão enviado**: verde claro, canto superior direito reto, horário + "✓✓" azul (#53bdeb). Quando é resposta, mostra no topo uma citação (borda esquerda verde, fundo levemente escuro) com "BTG · Pod de Talentos" em verde e a primeira linha da mensagem citada.
+* **Balão enviado**: verde claro, canto superior direito reto, horário + "✓✓" azul (#53bdeb). Quando é resposta, mostra no topo uma citação (borda esquerda verde, fundo levemente escuro) com "Remembr · BTG Pactual" em verde e a primeira linha da mensagem citada.
 * **Separador** central: "HOJE".
 * **Cartão de novo candidato** (formato de mensagem com botões de resposta rápida do WhatsApp Business):
   * Balão branco: **"Novo candidato · #N"** (negrito), nome em negrito maior, "Faculdade · Ano", "Currículo anexado" (se houver) e o link azul **"linkedin.com/in/[slug]"** (abre a busca do LinkedIn por nome + faculdade em nova aba), horário.
